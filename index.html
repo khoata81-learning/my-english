@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My English Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .folder-title {
+      margin-top: 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>My English Practice</h1>
+
+  <div id="file-list"></div>
+
+  <script>
+    const fileStructure = {
+      "Main Files": [
+        { name: "Listening Cam 01 - Test 01", path: "Listening-Cam01-Test01.html" },
+        { name: "Listening Cam 01 - Test 02", path: "Listening-Cam01-Test02.html" }
+      ],
+      "Cambridge 02": [
+        { name: "Listening Cam 02 - Test 01", path: "Cambridge02/Listening-Cam02-Test01.html" },
+        { name: "Listening Cam 02 - Test 02", path: "Cambridge02/Listening-Cam02-Test02.html" }
+      ],
+      "Cambridge 03": [
+        { name: "Listening Cam 03 - Test 01", path: "Cambridge03/Listening-Cam03-Test01.html" }
+      ]
+    };
+
+    const container = document.getElementById("file-list");
+
+    for (const folder in fileStructure) {
+      const title = document.createElement("div");
+      title.className = "folder-title";
+      title.textContent = folder;
+      container.appendChild(title);
+
+      const ul = document.createElement("ul");
+      fileStructure[folder].forEach(file => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = file.path;
+        a.textContent = file.name;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      container.appendChild(ul);
+    }
+  </script>
+</body>
+</html>
