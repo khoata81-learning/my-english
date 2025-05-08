@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Two Google Forms Side-by-Side</title>
+  <title>Two Google Forms Side-by-Side (Full Width)</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
     }
 
     .container {
       display: flex;
-      flex-direction: row;
       height: 100vh;
-      width: 100%;
+      width: 100vw;
     }
 
     .form-box {
-      width: 50%;
-      padding: 10px;
+      flex: 1;
+      height: 100%;
     }
 
     iframe {
@@ -35,7 +35,6 @@
       }
 
       .form-box {
-        width: 100%;
         height: 50vh;
       }
     }
